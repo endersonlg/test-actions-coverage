@@ -24,6 +24,34 @@ jobs:
       #     output_location: "build" # Built app content directory - optional
       #     ###### End of Repository/Build Configurations ######
 
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: test1
+        run: echo hoge
+        if: ( 'a' == 'a' )
+
       - name: test2
         run: echo hoge
         if: ( 'a' == 'b' )
+
+      - name: test3
+        run: echo hoge
+        if: >
+          'a' == 'a'
+
+      - name: test4
+        run: echo hoge
+        if: >
+          'a' == 'b'
+
+      - name: test5
+        run: echo hoge
+        if: >
+          ${{ 'a' == 'a' }}
+
+      - name: test6
+        run: echo hoge
+        if: >
+          ${{ 'a' == 'b' }}
