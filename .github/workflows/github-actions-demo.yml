@@ -24,5 +24,6 @@ jobs:
       #     output_location: "build" # Built app content directory - optional
       #     ###### End of Repository/Build Configurations ######
 
-      - name: test
+      - name: test2
+        run: echo hoge
         if: ( 'a' == 'b' )
