@@ -11,19 +11,19 @@ jobs: # Serviço que será feito
   deploy: # Nome do serviço
     runs-on: ubuntu-latest # Qual VM iremos executar
 
-  steps: # Etapas
-    - uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
-    - uses: actions/setup-node@v2
-      with:
+    steps: # Etapas
+      - uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
+      - uses: actions/setup-node@v2
+        with:
         node-version: '16' # Qual versão do node utilizaremos
 
-    - name: Install dependecies
-      run: yarn install # Instalar as dependecias
+      - name: Install dependecies
+        run: yarn install # Instalar as dependecias
 
-    - name: Check eslint
-      run: yarn lint # Este comando irá fazer uma verificação no codigo mostrando warnings ou erro relatado pelo eslint
-      # Adicione este comando dentro do package.json em scripts com nome de lint
-      #Ex: "scripts":{"lint": "node_modules/eslint/bin/eslint.js src --max-warnings=0 --fix"}
+      - name: Check eslint
+        run: yarn lint # Este comando irá fazer uma verificação no codigo mostrando warnings ou erro relatado pelo eslint
+        # Adicione este comando dentro do package.json em scripts com nome de lint
+        #Ex: "scripts":{"lint": "node_modules/eslint/bin/eslint.js src --max-warnings=0 --fix"}
 
-    - name: Check for listing errors
-      run: yarn test # Realizar Test na aplicaçãõ, caso algum teste falhe a action irar acusar erro e parar
+      - name: Check for listing errors
+        run: yarn test # Realizar Test na aplicaçãõ, caso algum teste falhe a action irar acusar erro e parar
