@@ -1,8 +1,8 @@
 name: Check code for PullRequest# Definimos o nome da ação
 on: # Quando a ação será executada                     
-		pull_request:                      
-			branches:                        
-				- dev   
+	pull_request:                      
+		branches:                        
+			- dev   
                        
 env: # Definir nossas env
 	token: 123456789 # Como por exemplo
@@ -11,19 +11,19 @@ jobs: # Serviço que será feito
 	deploy: # Nome do serviço
 		runs-on: ubuntu-latest # Qual VM iremos executar
 
-	steps: # Etapas
-		- name: Realizar um checkout no repositorio # Nome da ação que iremos executar
-		- uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses 
-			with:
-				node-version: '16' # Qual versão do node utilizaremos
+		steps: # Etapas
+			- name: Realizar um checkout no repositorio # Nome da ação que iremos executar
+			- uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses 
+				with:
+					node-version: '16' # Qual versão do node utilizaremos
 
-		- uses: Install dependecies
-		  run: yarn install # Instalar as dependecias
+			- uses: Install dependecies
+				run: yarn install # Instalar as dependecias
 
-		-uses: Check eslint
-			run: yarn lint # Este comando irá fazer uma verificação no codigo mostrando warnings ou erro relatado pelo eslint
-			# Adicione este comando dentro do package.json em scripts com nome de lint
-			#Ex: "scripts":{"lint": "node_modules/eslint/bin/eslint.js src --max-warnings=0 --fix"}
+			-uses: Check eslint
+				run: yarn lint # Este comando irá fazer uma verificação no codigo mostrando warnings ou erro relatado pelo eslint
+				# Adicione este comando dentro do package.json em scripts com nome de lint
+				#Ex: "scripts":{"lint": "node_modules/eslint/bin/eslint.js src --max-warnings=0 --fix"}
 
-		- uses: Check for listing errors
-			run: yarn test # Realizar Test na aplicaçãõ, caso algum teste falhe a action irar acusar erro e parar
+			- uses: Check for listing errors
+				run: yarn test # Realizar Test na aplicaçãõ, caso algum teste falhe a action irar acusar erro e parar
