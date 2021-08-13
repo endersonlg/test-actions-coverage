@@ -17,5 +17,5 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Install dependecies
+      - name: Install dependeciesa
         run: yarn install
