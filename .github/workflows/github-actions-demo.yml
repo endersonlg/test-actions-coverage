@@ -9,22 +9,20 @@ env:
 	token: 123456789
 
 jobs:
-	deploy:
-		runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
 
-		steps:
-			- name: Realizar um checkout no repositorio
-			- uses: actions/checkout@v2
-				with:
-					node-version: '16'
+    steps:
+      - name: Realizar um checkout no repositorio
+      - uses: actions/checkout@v2
+        with:
+          node-version: '16'
 
-			- uses: Install dependecies
-				run: yarn install
+      - uses: Install dependecies
+        run: yarn install
 
-			-uses: Check eslint
-				run: yarn lint
-			
-			
+      -uses: Check eslint
+        run: yarn lint
 
-			- uses: Check for listing errors
-				run: yarn test
+      - uses: Check for listing errors
+        run: yarn test
