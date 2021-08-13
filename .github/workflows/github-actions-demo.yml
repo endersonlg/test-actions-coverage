@@ -18,11 +18,11 @@ jobs:
         with:
           node-version: '16'
 
-      - uses: Install dependecies
+      - name: Install dependecies
         run: yarn install
 
-      - uses: Check eslint
+      - name: Check eslint
         run: yarn lint
 
-      - uses: Check for listing errors
+      - name: Check for listing errors
         run: yarn test
