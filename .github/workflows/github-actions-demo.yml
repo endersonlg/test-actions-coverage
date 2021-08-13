@@ -21,7 +21,7 @@ jobs:
       - uses: Install dependecies
         run: yarn install
 
-      -uses: Check eslint
+      - uses: Check eslint
         run: yarn lint
 
       - uses: Check for listing errors
