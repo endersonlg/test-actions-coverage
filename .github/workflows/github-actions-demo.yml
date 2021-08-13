@@ -12,11 +12,10 @@ jobs: # Serviço que será feito
     runs-on: ubuntu-latest # Qual VM iremos executar
 
   steps: # Etapas
-    - uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses 
-
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '16' # Qual versão do node utilizaremos
+		- uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
+		- uses: actions/setup-node@v2
+			with:
+				node-version: '16' # Qual versão do node utilizaremos
 
     - name: Install dependecies
       run: yarn install # Instalar as dependecias
