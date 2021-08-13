@@ -12,7 +12,12 @@ jobs: # Serviço que será feito
     runs-on: ubuntu-latest # Qual VM iremos executar
 
     steps: # Etapas
+		  - name: Checkout repository
       - uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
+			  with:
+					fetch-depth: 0
+					
+			- name: Install Node
       - uses: actions/setup-node@v2
         with:
         node-version: '16' # Qual versão do node utilizaremos
