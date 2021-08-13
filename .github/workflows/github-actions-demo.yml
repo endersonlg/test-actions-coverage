@@ -1,9 +1,14 @@
-name: Check code for PullReques
-on:                    
-	pull_request:                      
-		branches:                        
-			- main
-                       
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches: 
+      - main
+      - dev
+			
 env:
 	token: 123456789
 
