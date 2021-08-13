@@ -14,9 +14,9 @@ jobs: # Serviço que será feito
     steps: # Etapas
 		  - name: Checkout repository
       - uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
-			  with:
-					fetch-depth: 0
-					
+        with:
+          fetch-depth: 0
+
 			- name: Install Node
       - uses: actions/setup-node@v2
         with:
