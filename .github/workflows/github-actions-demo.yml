@@ -22,13 +22,6 @@ jobs: # Serviço que será feito
     - name: Install dependecies
       run: yarn install # Instalar as dependecias
 
-<<<<<<< Updated upstream
-      - name: Check eslint
-        run: yarn lint
-
-      - name: Check for listing errors
-        run: yarn test
-=======
     - name: Check eslint
       run: yarn lint # Este comando irá fazer uma verificação no codigo mostrando warnings ou erro relatado pelo eslint
       # Adicione este comando dentro do package.json em scripts com nome de lint
@@ -36,4 +29,3 @@ jobs: # Serviço que será feito
 
     - name: Check for listing errors
       run: yarn test # Realizar Test na aplicaçãõ, caso algum teste falhe a action irar acusar erro e parar
->>>>>>> Stashed changes
