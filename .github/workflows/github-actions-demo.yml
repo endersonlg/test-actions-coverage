@@ -13,7 +13,7 @@ jobs: # Serviço que será feito
 
   steps: # Etapas
     - name: Realizar um checkout no repositorio # Nome da ação que iremos executar
-    	uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses 
+      uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses 
 
     - uses: actions/setup-node@v2
       with:
