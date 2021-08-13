@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-	token: 123456789
+  token: 123456789
 
 jobs:
   deploy:
