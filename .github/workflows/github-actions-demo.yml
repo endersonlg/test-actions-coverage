@@ -1,60 +1,29 @@
-name: Azure Static Web Apps CI/CD
+name: Check code for PullRequest# Definimos o nome da ação
+on: # Quando a ação será executada                     
+		pull_request:                      
+			branches:                        
+				- dev   
+                       
+env: # Definir nossas env
+	token: 123456789 # Como por exemplo
 
-on: [push]
+jobs: # Serviço que será feito
+	deploy: # Nome do serviço
+		runs-on: ubuntu-latest # Qual VM iremos executar
 
-jobs:
-  build_and_deploy_job:
-    runs-on: ubuntu-latest
-    name: Build and Deploy Job
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: true
-      # - name: Build And Deploy
-      #   id: builddeploy
-      #   uses: Azure/static-web-apps-deploy@v1
-      #   with:
-      #     azure_static_web_apps_api_token: ${{ secrets.AZURE_TOKEN }}
-      #     repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-      #     action: "upload"
-      #     ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-      #     # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-      #     app_location: "/" # App source code path
-      #     api_location: "" # Api source code path - optional
-      #     output_location: "build" # Built app content directory - optional
-      #     ###### End of Repository/Build Configurations ######
-      - uses: romeovs/lcov-reporter-action@v0.2.16
-        with:
-          lcov-file: ./coverage/lcov.info
+	steps: # Etapas
+		- name: Realizar um checkout no repositorio # Nome da ação que iremos executar
+		- uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses 
+			with:
+				node-version: '16' # Qual versão do node utilizaremos
 
-  test:
-    runs-on: ubuntu-latest
+		- uses: Install dependecies
+		  run: yarn install # Instalar as dependecias
 
-    steps:
-      - name: test1
-        run: echo hoge
-        if: ( 'a' == 'a' )
+		-uses: Check eslint
+			run: yarn lint # Este comando irá fazer uma verificação no codigo mostrando warnings ou erro relatado pelo eslint
+			# Adicione este comando dentro do package.json em scripts com nome de lint
+			#Ex: "scripts":{"lint": "node_modules/eslint/bin/eslint.js src --max-warnings=0 --fix"}
 
-      - name: test2
-        run: echo hoge
-        if: ( 'a' == 'b' )
-
-      - name: test3
-        run: echo hoge
-        if: >
-          'a' == 'a'
-
-      - name: test4
-        run: echo hoge
-        if: >
-          'a' == 'b'
-
-      - name: test5
-        run: echo hoge
-        if: >
-          ${{ 'a' == 'a' }}
-
-      - name: test6
-        run: echo hoge
-        if: >
-          ${{ 'a' == 'b' }}
+		- uses: Check for listing errors
+			run: yarn test # Realizar Test na aplicaçãõ, caso algum teste falhe a action irar acusar erro e parar

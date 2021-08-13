@@ -1,0 +1,23 @@
+{
+  "singleQuote": true,
+  "arrowParens": "always",
+  "trailingComma": "all",
+  "useTabs": false,
+  "semi": true,
+  "tabWidth": 2,
+  "printWidth": 80,
+  "parser": "typescript",
+  "overrides": [
+    {
+      "files": [
+        "*.json",
+        "*.md",
+        ".prettierrc",
+        ".eslintrc"
+      ],
+      "options": {
+        "tabWidth": 1
+      }
+    }
+  ] 
+}
