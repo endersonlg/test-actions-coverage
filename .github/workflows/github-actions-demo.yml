@@ -19,3 +19,6 @@ jobs:
 
       - name: Install dependeciesa
         run: yarn install
+
+      - name: Check eslint
+        run: yarn lint
