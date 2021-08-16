@@ -32,3 +32,6 @@ jobs: # Serviço que será feito
 
       - name: Check for listing errors
         run: yarn test # Realizar Test na aplicaçãõ, caso algum teste falhe a action irar acusar erro e parar
+
+      - name: Check commit message
+        uses: wagoid/commitlint-github-action@v1
