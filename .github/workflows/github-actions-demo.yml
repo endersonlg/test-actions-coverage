@@ -20,7 +20,7 @@ jobs: # Serviço que será feito
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node-version: '16' # Qual versão do node utilizaremos
+            node-version: '16' # Qual versão do node utilizaremos
 
       - name: Install dependecies
         run: yarn install # Instalar as dependecias
