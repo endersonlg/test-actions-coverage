@@ -2,7 +2,7 @@ name: Check code for PullRequest# Definimos o nome da ação
 on: # Quando a ação será executada                     
   pull_request:                      
     branches:                        
-      - dev   
+      - main   
                        
 env: # Definir nossas env
   token: 123456789 # Como por exemplo
