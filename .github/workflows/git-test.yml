@@ -1,0 +1,22 @@
+name: TESTE
+on: [push]
+                       
+env: # Definir nossas env
+  token: 123456789 # Como por exemplo
+
+jobs: # Serviço que será feito
+  deploy: # Nome do serviço
+    runs-on: ubuntu-latest # Qual VM iremos executar
+
+    steps: # Etapas
+      - name: Checkout repository
+        uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
+
+      - name: teste if
+        run: |
+          number=20
+          if $number==20; then
+             echo "casada"
+          else
+              echo "nao casada"
+          fi
