@@ -22,7 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:coverage": "yarn run test -- --coverage --coverageReporters='json-summary'  --watchAll=false",
+    "test:coverage": "yarn run test -- --coverage --coverageReporters='text-summary'  --watchAll=false",
     "lint": "node_modules/eslint/bin/eslint.js src --max-warnings=0 --fix"
   },
   "eslintConfig": {
