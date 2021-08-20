@@ -12,6 +12,9 @@ jobs: # Serviço que será feito
       - name: Checkout repository
         uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
 
+      - name: Install Dependencies
+        run: yarn  
+
       - name: Test repository
         run: yarn test:coverage
 
