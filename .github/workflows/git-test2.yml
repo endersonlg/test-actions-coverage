@@ -16,7 +16,7 @@ jobs:
     #   matrix: ${{needs.job1.outputs.matrix}}
     steps:
       - name: ola
-        if: (${{needs.job1.outputs.matrix == '11'}})
+        if: ${{needs.job1.outputs.matrix == '11'}}
         run: |
                echo ${{needs.job1.outputs.matrix}}
                echo ${{needs.job1.outputs.matrix == '11'}}
