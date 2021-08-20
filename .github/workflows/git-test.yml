@@ -28,7 +28,12 @@ jobs: # Serviço que será feito
       
       - name: lala
         # if: ( ${{steps.test-percentage.outputs}}<50 )
-        if: ('a' == 'b')
+        if: (10 > 20)
         run: echo 'chegou'
+
+      - name: lala
+        # if: ( ${{steps.test-percentage.outputs}}<50 )
+        if: (10 < 20)
+        run: echo 'chegou 1'  
 
         
