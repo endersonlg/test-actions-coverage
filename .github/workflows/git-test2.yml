@@ -33,7 +33,6 @@ jobs:
                echo ${{needs.job1.outputs.matrix > 11}}
                echo ${{needs.job1.outputs.matrix == 10}}
                echo ola
-               exit 1
 
       - name: ol2
         if: ${{needs.job1.outputs.matrix > 11}}
