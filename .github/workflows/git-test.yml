@@ -18,25 +18,28 @@ jobs: # Serviço que será feito
         run: yarn  
 
       - name: Test repository
+        id: test
         run: yarn test:coverage
 
-      - name: teste if
-        id: test-percentage
-        run: |
-          json=`cat ./coverage/coverage-summary.json`
-            echo `echo $(jq -r '.total.lines.pct' <<< "$json")`
+      - run: echo ${{steps.test.outputs}}
+
+      # - name: teste if
+      #   id: test-percentage
+      #   run: |
+      #     json=`cat ./coverage/coverage-summary.json`
+      #       echo `echo $(jq -r '.total.lines.pct' <<< "$json")`
       
-      - name: lala
-        # if: ( ${{steps.test-percentage.outputs}}<50 )
-        if: (10 > 20)
-        run: echo 'chegou'
+      # - name: lala
+      #   # if: ( ${{steps.test-percentage.outputs}}<50 )
+      #   if: (10 > 20)
+      #   run: echo 'chegou'
 
-      - name: lala
-        # if: ( ${{steps.test-percentage.outputs}}<50 )
-        if: (10 < 20)
-        run: echo 'chegou 1'  
+      # - name: lala
+      #   # if: ( ${{steps.test-percentage.outputs}}<50 )
+      #   if: (10 < 20)
+      #   run: echo 'chegou 1'  
 
-      - name: saida
-        run: echo ${{steps.test-percentage.outputs.matrix}}  
+      # - name: saida
+      #   run: echo ${{steps.test-percentage.outputs.matrix}}  
 
         
