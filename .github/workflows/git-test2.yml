@@ -32,8 +32,18 @@ jobs:
                echo ${{needs.job1.outputs.matrix == 11}}
                echo ${{needs.job1.outputs.matrix > 11}}
                echo ${{needs.job1.outputs.matrix == 10}}
+               exit 1
 
       - name: ol2
+        if: ${{needs.job1.outputs.matrix > 11}}
+        run: |
+               echo ${{needs.job1.outputs.matrix}}
+               echo ${{needs.job1.outputs.matrix == '11'}}
+               echo ${{needs.job1.outputs.matrix == 11}}
+               echo ${{needs.job1.outputs.matrix > 11}}
+               echo ${{needs.job1.outputs.matrix == 10}}
+
+              - name: ol2
         if: ${{needs.job1.outputs.matrix > 11}}
         run: |
                echo ${{needs.job1.outputs.matrix}}
