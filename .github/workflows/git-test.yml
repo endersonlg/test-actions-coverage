@@ -25,35 +25,20 @@ jobs: # Serviço que será feito
                echo "::set-output name=functions_percentage::$(jq -r '.total.functions.pct' <<< "$coverage_json")"
 
       - name: test1
-        id: test
-        run: echo "::set-output name=number::10"
-      
+        if: ${{steps.coverage.outputs.lines_percentage >= 80}} && ${{steps.coverage.outputs.branches_percentage >= 80}} && ${{steps.coverage.outputs.functions_percentage >= 80}}
+        run: echo passou
+        # run: |
+        #        echo ${{steps.coverage.outputs.lines_percentage}}
+        #        echo ${{steps.coverage.outputs.branches_percentage}}
+        #        echo ${{steps.coverage.outputs.functions_percentage}}
+
       - name: test2
-        run: echo ${{steps.test.outputs.number}}
-
-      - name: test3
-        run: |
-               echo ${{steps.coverage.outputs.lines_percentage}}
-               echo ${{steps.coverage.outputs.branches_percentage}}
-               echo ${{steps.coverage.outputs.functions_percentage}}
-
-      # - name: teste if
-      #   id: test-percentage
-      #   run: |
-      #     json=`cat ./coverage/coverage-summary.json`
-      #       echo `echo $(jq -r '.total.lines.pct' <<< "$json")`
-      
-      # - name: lala
-      #   # if: ( ${{steps.test-percentage.outputs}}<50 )
-      #   if: (10 > 20)
-      #   run: echo 'chegou'
-
-      # - name: lala
-      #   # if: ( ${{steps.test-percentage.outputs}}<50 )
-      #   if: (10 < 20)
-      #   run: echo 'chegou 1'  
-
-      # - name: saida
-      #   run: echo ${{steps.test-percentage.outputs.matrix}}  
+        if: ${{steps.coverage.outputs.lines_percentage >= 50}} && ${{steps.coverage.outputs.branches_percentage >= 50}} && ${{steps.coverage.outputs.functions_percentage >= 50}}
+        run: echo passou2
+        # run: |
+        #        echo ${{steps.coverage.outputs.lines_percentage}}
+        #        echo ${{steps.coverage.outputs.branches_percentage}}
+        #        echo ${{steps.coverage.outputs.functions_percentage}}
+        
 
         
