@@ -27,7 +27,7 @@ jobs: # Serviço que será feito
           echo `echo $(jq -r '.total.lines.pct' <<< "$json")`
       
       - name: lala
-        if: ( ${{steps.test-percentage.outputs}} == 'a' )
-        run: echo 'chegou'
+        if: ( ${{steps.test-percentage.outputs}}<50 )
+          run: echo 'chegou'
 
         
