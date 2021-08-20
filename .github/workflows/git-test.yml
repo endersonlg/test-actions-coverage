@@ -16,8 +16,13 @@ jobs: # Serviço que será feito
         run: yarn  
 
       - name: Test repository
-        id: testCov
-        run: yarn test:coverage
+        id: coverage
+        run: |
+               yarn test:coverage
+               coverage_json=`cat ./coverage/coverage-summary.json`
+               echo ":: set-output name=lines_percentage::`echo $(jq -r '.total.lines.pct' <<< "$json")`"
+               echo ":: set-output name=branches_percentage::`echo $(jq -r '.total.branches.pct' <<< "$json")`"
+               echo ":: set-output name=functions_percentage::`echo $(jq -r '.total.functions.pct' <<< "$json")`"
 
       - name: test1
         id: test
@@ -27,7 +32,10 @@ jobs: # Serviço que será feito
         run: echo ${{steps.test.outputs.number}}
 
       - name: test3
-        run: echo ${{steps.testCov.outputs.Statements}}
+        run: |
+               echo ${{steps.coverage.outputs.lines_percentage}}
+               echo ${{steps.coverage.outputs.branches_percentage}}
+               echo ${{steps.coverage.outputs.functions_percentage}}
 
       # - name: teste if
       #   id: test-percentage
