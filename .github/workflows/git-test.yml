@@ -8,7 +8,7 @@ jobs: # Serviço que será feito
   deploy: # Nome do serviço
     runs-on: ubuntu-latest # Qual VM iremos executar
     outputs:
-      matrix: ${{ steps.test-percentage.outputs }}
+      matrix: ${{ steps.test-percentage.outputs}}
 
     steps: # Etapas
       - name: Checkout repository
@@ -24,7 +24,7 @@ jobs: # Serviço que será feito
         id: test-percentage
         run: |
           json=`cat ./coverage/coverage-summary.json`
-          echo `echo $(jq -r '.total.lines.pct' <<< "$json")`
+            echo `echo $(jq -r '.total.lines.pct' <<< "$json")`
       
       - name: lala
         # if: ( ${{steps.test-percentage.outputs}}<50 )
@@ -37,6 +37,6 @@ jobs: # Serviço que será feito
         run: echo 'chegou 1'  
 
       - name: saida
-        run: echo ${{steps.test-percentage.outputs}}  
+        run: echo ${{steps.test-percentage.outputs.matrix}}  
 
         
