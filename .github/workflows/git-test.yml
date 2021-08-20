@@ -25,9 +25,7 @@ jobs: # Serviço que será feito
 
       - name: test1
         id: test
-        run: |
-               number=10
-               echo $number
+        run: echo "::set-output name=number::10"
       
       - name: test2
         run: echo ${{steps.test.outputs.number}}
