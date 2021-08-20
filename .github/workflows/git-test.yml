@@ -17,12 +17,11 @@ jobs: # Serviço que será feito
 
       - name: Test repository
         id: coverage
-        run: |
-               yarn test:coverage
-               coverage_json=`cat ./coverage/coverage-summary.json`
-               echo ":: set-output name=lines_percentage::10"
-               echo ":: set-output name=branches_percentage::$(jq -r '.total.branches.pct' <<< "$coverage_json")"
-               echo ":: set-output name=functions_percentage::$(jq -r '.total.functions.pct' <<< "$coverage_json")"
+        run: echo "::set-output name=lines_percentage::10"
+        #  yarn test:coverage
+              #  coverage_json=`cat ./coverage/coverage-summary.json`
+              #  echo ":: set-output name=branches_percentage::$(jq -r '.total.branches.pct' <<< "$coverage_json")"
+              #  echo ":: set-output name=functions_percentage::$(jq -r '.total.functions.pct' <<< "$coverage_json")"
 
       - name: test1
         id: test
