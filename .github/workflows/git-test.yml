@@ -21,5 +21,4 @@ jobs: # Serviço que será feito
       - name: teste if
         run: |
           json=`cat ./coverage/coverage-summary.json`
-          total=`echo $(jq -r '.total' <<< "$json")`
-          echo $total
+          echo `echo $(jq -r '.total.lines.pct' <<< "$json")`
