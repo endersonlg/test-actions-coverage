@@ -12,21 +12,22 @@ jobs: # Serviço que será feito
       - name: Checkout repository
         uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
 
-      # - name: Install Dependencies
-      #   run: yarn  
+      - name: Install Dependencies
+        run: yarn  
 
-      # - name: Test repository
-      #   id: test
-      #   run: yarn test:coverage
-
-      # - run: echo ${{steps.test.outputs}}
+      - name: Test repository
+        id: testCov
+        run: yarn test:coverage
 
       - name: test1
         id: test
-        run: echo "name=number::10"
+        run: echo "::set-output name=number::10"
       
       - name: test2
         run: echo ${{steps.test.outputs.number}}
+
+      - name: test3
+        run: echo ${{steps.testCov.outputs.Statements}}
 
       # - name: teste if
       #   id: test-percentage
