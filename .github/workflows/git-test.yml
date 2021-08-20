@@ -25,13 +25,12 @@ jobs: # Serviço que será feito
       #          echo "::set-output name=functions_percentage::$(jq -r '.total.functions.pct' <<< "$coverage_json")"
 
       - name: test1
-        run: echo ${{secrets.COVERAGE_PERCENTAGE}}
-      #   if: ${{steps.coverage.outputs.lines_percentage >= secrets.COVERAGE_PERCENTAGE && steps.coverage.outputs.branches_percentage >= secrets.COVERAGE_PERCENTAGE && steps.coverage.outputs.functions_percentage >= secrets.COVERAGE_PERCENTAGE}}
-      #   run: echo passou
-      #   # run: |
-      #   #        echo ${{steps.coverage.outputs.lines_percentage}}
-      #   #        echo ${{steps.coverage.outputs.branches_percentage}}
-      #   #        echo ${{steps.coverage.outputs.functions_percentage}}
+        if: ${{steps.coverage.outputs.lines_percentage >= secrets.COVERAGE_PERCENTAGE && steps.coverage.outputs.branches_percentage >= secrets.COVERAGE_PERCENTAGE && steps.coverage.outputs.functions_percentage >= secrets.COVERAGE_PERCENTAGE}}
+        run: echo passou
+        # run: |
+        #        echo ${{steps.coverage.outputs.lines_percentage}}
+        #        echo ${{steps.coverage.outputs.branches_percentage}}
+        #        echo ${{steps.coverage.outputs.functions_percentage}}
 
       # - name: test2
       #   if: ${{steps.coverage.outputs.lines_percentage >= secrets.COVERAGE_PERCENTAGE || steps.coverage.outputs.branches_percentage >= secrets.COVERAGE_PERCENTAGE || steps.coverage.outputs.functions_percentage >= secrets.COVERAGE_PERCENTAGE}}
