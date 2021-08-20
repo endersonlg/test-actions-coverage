@@ -15,4 +15,6 @@ jobs:
     # strategy:
     #   matrix: ${{needs.job1.outputs.matrix}}
     steps:
-      - run: echo ${{needs.job1.outputs.matrix}}
+      - name: ola
+        if: (${{needs.job1.outputs.matrix}} > 11)
+        run: echo ola casada
