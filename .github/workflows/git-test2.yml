@@ -12,7 +12,7 @@ jobs:
   job2:
     needs: job1
     runs-on: ubuntu-latest
-    strategy:
-      matrix: ${{needs.job1.outputs.matrix}}
+    # strategy:
+    #   matrix: ${{needs.job1.outputs.matrix}}
     steps:
       - run: echo ${{needs.job1.outputs.matrix}}
