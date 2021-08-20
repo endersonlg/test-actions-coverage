@@ -12,6 +12,9 @@ jobs: # Serviço que será feito
       - name: Checkout repository
         uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
 
+      - name: Test repository
+        run: yarn test:coverage
+
       - name: teste if
         run: |
           json=`cat ./coverage/coverage-summary.json`
