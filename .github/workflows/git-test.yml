@@ -7,8 +7,6 @@ env: # Definir nossas env
 jobs: # Serviço que será feito
   deploy: # Nome do serviço
     runs-on: ubuntu-latest # Qual VM iremos executar
-    outputs:
-      matrix: ${{ steps.test.outputs.number}}
 
     steps: # Etapas
       - name: Checkout repository
