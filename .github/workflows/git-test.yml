@@ -25,10 +25,12 @@ jobs: # Serviço que será feito
 
       - name: test1
         id: test
-        run: echo 10
+        run: |
+               number=10
+               echo $number
       
       - name: test2
-        run: echo ${{steps.test.outputs}}
+        run: echo ${{steps.test.outputs.number}}
 
       # - name: teste if
       #   id: test-percentage
