@@ -25,7 +25,7 @@ jobs: # Serviço que será feito
                echo "::set-output name=functions_percentage::$(jq -r '.total.functions.pct' <<< "$coverage_json")"
 
       - name: test1
-        if: ${{steps.coverage.outputs.lines_percentage >= 80}} && ${{steps.coverage.outputs.branches_percentage >= 80}} && ${{steps.coverage.outputs.functions_percentage >= 80}}
+        if: ${{steps.coverage.outputs.lines_percentage >= 80}}
         run: echo passou
         # run: |
         #        echo ${{steps.coverage.outputs.lines_percentage}}
