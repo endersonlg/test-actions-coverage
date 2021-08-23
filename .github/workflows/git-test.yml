@@ -28,7 +28,7 @@ jobs: # Serviço que será feito
         env: 
           PERCENTAGE_ACCEPTED: ${{secrets.COVERAGE_PERCENTAGE}}
         # if: ${{steps.coverage.outputs.lines_percentage >= PERCENTAGE_ACCEPTED && steps.coverage.outputs.branches_percentage >= PERCENTAGE_ACCEPTED && steps.coverage.outputs.functions_percentage >= PERCENTAGE_ACCEPTED}}
-        run: echo {{$env.PERCENTAGE_ACCEPTED}}
+        run: echo ${{env.PERCENTAGE_ACCEPTED}}
         # run: |
         #        echo ${{steps.coverage.outputs.lines_percentage}}
         #        echo ${{steps.coverage.outputs.branches_percentage}}
