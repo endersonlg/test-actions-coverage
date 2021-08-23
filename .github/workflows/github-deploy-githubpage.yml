@@ -15,19 +15,19 @@ jobs: # Serviço que será feito
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-            node-version: '16' # Qual versão do node utilizaremos
+          node-version: '16' # Qual versão do node utilizaremos
 
       - name: Install dependecies
         run: yarn install # Instalar as dependecias
 
-     - name: build project
-       run: yarn build
+      - name: build project
+        run: yarn build
 
-     - name: Deploy to GitHub Pages
-       uses: peaceiris/actions-gh-pages@v3
-       with:
-         github_token: ${{ secrets.GITHUB_TOKEN }}
-         publish_dir: ./build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
 
     
   
