@@ -22,7 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:coverage": "yarn run test -- --coverage --coverageReporters='json-summary'  --watchAll=false",
+    "test:coverage": "yarn run test -- --coverage --watchAll=false",
     "lint": "node_modules/eslint/bin/eslint.js src --max-warnings=0 --fix"
   },
   "eslintConfig": {
@@ -47,7 +47,14 @@
     "collectCoverageFrom": [
       "!./src/index.tsx",
       "!./src/react-app-env.d.ts"
-    ]
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    }
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
