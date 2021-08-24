@@ -1,34 +1,34 @@
-name: Deploy GitHub Page
-on: # Quando a ação será executada                     
-  push:                      
-    branches:                        
-      - main
+# name: Deploy GitHub Page
+# on: # Quando a ação será executada                     
+#   push:                      
+#     branches:                        
+#       - main
 
-jobs: # Serviço que será feito
-  deploy: # Nome do serviço
-    runs-on: ubuntu-latest # Qual VM iremos executar
+# jobs: # Serviço que será feito
+#   deploy: # Nome do serviço
+#     runs-on: ubuntu-latest # Qual VM iremos executar
 
-    steps: # Etapas
-      - name: Checkout repository
-        uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
+#     steps: # Etapas
+#       - name: Checkout repository
+#         uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
 
-      - name: Install Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16' # Qual versão do node utilizaremos
+#       - name: Install Node
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: '16' # Qual versão do node utilizaremos
 
-      - name: Install dependecies
-        run: yarn install # Instalar as dependecias
+#       - name: Install dependecies
+#         run: yarn install # Instalar as dependecias
 
-      - name: build project
-        run: yarn build
+#       - name: build project
+#         run: yarn build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main' }}
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+#       - name: Deploy to GitHub Pages
+#         uses: peaceiris/actions-gh-pages@v3
+#         if: ${{ github.ref == 'refs/heads/main' }}
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           publish_dir: ./public
 
     
   
