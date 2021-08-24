@@ -4,9 +4,6 @@ on: # Quando a ação será executada
     branches:                        
       - main
                        
-env: # Definir nossas env
-  token: 123456789 # Como por exemplo
-
 jobs: # Serviço que será feito
   deploy: # Nome do serviço
     runs-on: ubuntu-latest # Qual VM iremos executar
@@ -14,8 +11,6 @@ jobs: # Serviço que será feito
     steps: # Etapas
       - name: Checkout repository
         uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
-        with:
-          fetch-depth: 0
 
       - name: Install Node
         uses: actions/setup-node@v2
@@ -24,14 +19,3 @@ jobs: # Serviço que será feito
 
       - name: Install dependecies
         run: yarn install # Instalar as dependecias
-
-      - name: Check eslint
-        run: yarn lint # Este comando irá fazer uma verificação no codigo mostrando warnings ou erro relatado pelo eslint
-        # Adicione este comando dentro do package.json em scripts com nome de lint
-        #Ex: "scripts":{"lint": "node_modules/eslint/bin/eslint.js src --max-warnings=0 --fix"}
-
-      - name: Check for listing errors
-        run: yarn test # Realizar Test na aplicaçãõ, caso algum teste falhe a action irar acusar erro e parar
-
-      - name: Check commit message
-        uses: wagoid/commitlint-github-action@v1
