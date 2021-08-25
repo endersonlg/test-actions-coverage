@@ -10,6 +10,8 @@ jobs: # Serviços que será feito
     steps: # Etapas
       - name: Checkout repository # Nome que será exibido na action
         uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
+        with:
+          submodules: true
 
       - name: Build And Deploy
         id: builddeploy
