@@ -8,8 +8,8 @@ jobs: # Serviços que será feito
   deploy: # Nome do serviço
     runs-on: ubuntu-latest # Qual VM iremos executar
     steps: # Etapas
-       - name: Checkout repository # Nome que será exibido na action
-         uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
+      - name: Checkout repository # Nome que será exibido na action
+        uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
 
       - name: Setup Node
         uses: actions/setup-node@v2 # Lib para instalar o node em nossa VM
