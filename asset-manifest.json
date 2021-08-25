@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/test-actions-coverage/static/js/main.428587ca.chunk.js",
-    "main.js.map": "/test-actions-coverage/static/js/main.428587ca.chunk.js.map",
+    "main.js": "/test-actions-coverage/static/js/main.5a873bfa.chunk.js",
+    "main.js.map": "/test-actions-coverage/static/js/main.5a873bfa.chunk.js.map",
     "runtime-main.js": "/test-actions-coverage/static/js/runtime-main.217bf2c8.js",
     "runtime-main.js.map": "/test-actions-coverage/static/js/runtime-main.217bf2c8.js.map",
     "static/js/2.37fc9ac7.chunk.js": "/test-actions-coverage/static/js/2.37fc9ac7.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.217bf2c8.js",
     "static/js/2.37fc9ac7.chunk.js",
-    "static/js/main.428587ca.chunk.js"
+    "static/js/main.5a873bfa.chunk.js"
   ]
 }
