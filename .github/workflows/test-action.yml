@@ -1,7 +1,7 @@
 name: GitHub Pages # Definimos o nome da ação
-on: # Quando a ação será executada  
-  push:
-    branches:
+on: # Quando a ação será executada                     
+  push:                      
+    branches:                        
       - main
 
 jobs: # Serviços que será feito
