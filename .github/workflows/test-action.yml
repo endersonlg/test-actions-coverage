@@ -1,27 +1,29 @@
-name: GitHub Pages
-
-on:
+name: GitHub Pages # Definimos o nome da ação
+on: # Quando a ação será executada  
   push:
     branches:
       - main
-  pull_request:
 
-jobs:
-  deploy:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
+jobs: # Serviços que será feito
+  deploy: # Nome do serviço
+    runs-on: ubuntu-latest # Qual VM iremos executar
+    steps: # Etapas
+       - name: Checkout repository # Nome que será exibido na action
+         uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v2 # Lib para instalar o node em nossa VM
         with:
-          node-version: '16'
+          node-version: '16' # Qual versão do node utilizaremos
 
-      - run: yarn
-      - run: yarn  build
+      - name: Install dependecies
+        run: yarn install # Instalar as dependecias
+
+      - name: Build
+        run: yarn  build # Construir nossa aplicação
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Esta secret o github pega automaticamente, não precisamos defini-la
+          publish_dir: ./build # Pasta o qual contem o projeto contruído
