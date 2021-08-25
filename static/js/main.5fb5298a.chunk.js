@@ -1,0 +1,2 @@
+(this["webpackJsonptest-actions-coverage"]=this["webpackJsonptest-actions-coverage"]||[]).push([[0],{9:function(e,t,c){"use strict";c.r(t);var s=c(1),n=c.n(s),a=c(3),i=c.n(a),r=c(0),o=function(){return Object(r.jsxs)("div",{className:"App",children:[Object(r.jsx)("h1",{children:"Test Git Hub Actions 2"}),Object(r.jsx)("p",{children:"ola teste 8 la casa hub la"}),!1]})};i.a.render(Object(r.jsx)(n.a.StrictMode,{children:Object(r.jsx)(o,{})}),document.getElementById("root"))}},[[9,1,2]]]);
+//# sourceMappingURL=main.5fb5298a.chunk.js.map
