@@ -4,7 +4,7 @@ import React from 'react';
 import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
 
 const App: React.FC = () => (
-  <BrowserRouter basename={process.env.PUBLIC_URL}>
+  <BrowserRouter>
     <div>
       <nav>
         <ul>
