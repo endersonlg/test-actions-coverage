@@ -4,7 +4,7 @@ import React from 'react';
 import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
 
 const App: React.FC = () => (
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <div>
       <nav>
         <ul>
@@ -54,11 +54,14 @@ const User = () => (
   </div>
 );
 
-const Config = () => (
-  <div>
-    <h1>React + Node</h1>
-    <p>BOm demais</p>
-  </div>
-);
+const Config = () => {
+  console.log(process.env.PUBLIC_URL);
+  return (
+    <div>
+      <h1>React + Node</h1>
+      <p>BOm demais</p>
+    </div>
+  );
+};
 
 export default App;
