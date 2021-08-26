@@ -24,6 +24,8 @@ jobs: # Serviços que será feito
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        env:
+          PUBLIC_URL: https://endersonlg.github.io/test-actions-coverage
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # Esta secret o github pega automaticamente, não precisamos defini-la
           publish_dir: ./build # Pasta o qual contem o projeto contruído
