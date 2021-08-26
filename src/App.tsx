@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
 
-import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
 
 const App: React.FC = () => (
-  <Router basename={process.env.PUBLIC_URL}>
+  <BrowserRouter>
     <div>
       <nav>
         <ul>
@@ -34,7 +34,7 @@ const App: React.FC = () => (
         </Route>
       </Switch>
     </div>
-  </Router>
+  </BrowserRouter>
 );
 
 const Home = () => (
