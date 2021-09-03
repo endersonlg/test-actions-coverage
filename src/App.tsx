@@ -5,6 +5,7 @@ import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
 
 const App: React.FC = () => {
   let a;
+  let b;
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div>
