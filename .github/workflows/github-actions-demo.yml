@@ -1,21 +1,30 @@
-# name: Check code for PullRequest# Definimos o nome da ação
-# on: # Quando a ação será executada                     
-#   pull_request:                      
-#     branches:                        
-#       - main
+name: Check code for PullRequest # Definimos o nome da ação
+on: # Quando a ação será executada                     
+  pull_request:                      
+    branches:                        
+      - main
                        
-# jobs: # Serviço que será feito
-#   deploy: # Nome do serviço
-#     runs-on: ubuntu-latest # Qual VM iremos executar
+jobs: # Serviços que será feito
+  test: # Nome do serviço
+    runs-on: ubuntu-latest # Qual VM iremos executar
 
-#     steps: # Etapas
-#       - name: Checkout repository
-#         uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
+    steps: # Etapas
+      - name: Checkout repository # Nome que será exibido na action
+        uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
+ 
+      - name: Install Node
+        uses: actions/setup-node@v2 # Lib para instalar o node em nossa VM
+        with:
+            node-version: '16' # Qual versão do node utilizaremos
 
-#       - name: Install Node
-#         uses: actions/setup-node@v2
-#         with:
-#             node-version: '16' # Qual versão do node utilizaremos
+      - name: Install dependecies
+        run: yarn install # Instalar as dependecias
 
-#       - name: Install dependecies
-#         run: yarn install # Instalar as dependecias
+      - name: Check eslint
+        run: yarn lint 
+        # Este comando irá fazer uma verificação no codigo mostrando warnings ou erro relatado pelo eslint
+        # Adicione este comando dentro do package.json em scripts com nome de lint
+        #Ex: "scripts":{"lint": "node_modules/eslint/bin/eslint.js src --max-warnings=0 --fix"}
+
+      - name: Check for listing errors
+        run: yarn run test -- --coverage --watchAll=false # Realizar Test na aplicação, caso algum teste falhe ou a porcentagem de cobertura está abaixo do definido a action irá acusar erro e parar

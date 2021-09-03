@@ -59,7 +59,7 @@ const Config = () => {
   return (
     <div>
       <h1>React + Node</h1>
-      <p>BOm demais</p>
+      <p>BOm demais lala</p>
     </div>
   );
 };

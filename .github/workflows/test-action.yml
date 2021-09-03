@@ -1,29 +1,29 @@
-name: GitHub Deploy Azure # Definimos o nome da ação
-on: # Quando a ação será executada                     
-  push:                      
-    branches:                        
-      - main
+# name: GitHub Deploy Azure # Definimos o nome da ação
+# on: # Quando a ação será executada                     
+#   push:                      
+#     branches:                        
+#       - main
 
-jobs: # Serviços que será feito
-  deploy: # Nome do serviço
-    runs-on: ubuntu-latest # Qual VM iremos executar
-    steps: # Etapas
-      - name: Checkout repository # Nome que será exibido na action
-        uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
-        with:
-          submodules: true # Se deve verificar submódulos: `true` para verificar submódulos ou` recursivo` para
-                            # verifica recursivamente os submódulos.
-                            #
-                            # Quando a entrada `ssh-key` não é fornecida, URLs SSH começando com
-                            # `git@github.com:` são convertidos para HTTPS.
+# jobs: # Serviços que será feito
+#   deploy: # Nome do serviço
+#     runs-on: ubuntu-latest # Qual VM iremos executar
+#     steps: # Etapas
+#       - name: Checkout repository # Nome que será exibido na action
+#         uses: actions/checkout@v2 # Quando utilizamos uma lib devemos colocar o uses
+#         with:
+#           submodules: true # Se deve verificar submódulos: `true` para verificar submódulos ou` recursivo` para
+#                             # verifica recursivamente os submódulos.
+#                             #
+#                             # Quando a entrada `ssh-key` não é fornecida, URLs SSH começando com
+#                             # `git@github.com:` são convertidos para HTTPS.
                             
-                            # O deploy até funciona deixando o submodules como false, porém vamos seguir a documetação na Azure para deixa-lo como true.
+#                             # O deploy até funciona deixando o submodules como false, porém vamos seguir a documetação na Azure para deixa-lo como true.
 
-      - name: Build And Deploy
-        uses: Azure/static-web-apps-deploy@v1 # A lib ja executa o comando yarn build e após realiza o deploy
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_TOKEN }} # Token Obtido na azure para realizar o deploy
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Token do Git, este o GitHub fornece automatica sem precisar adicionar na secrets
-          action: "upload" # A ação que executará
-          app_location: "/" # Onde o projeto está, caso seja um monolito por exemplo deveria colocar a pasta client.
-          output_location: "build" # Pasta que irá subir para deploy
+#       - name: Build And Deploy
+#         uses: Azure/static-web-apps-deploy@v1 # A lib ja executa o comando yarn build e após realiza o deploy
+#         with:
+#           azure_static_web_apps_api_token: ${{ secrets.AZURE_TOKEN }} # Token Obtido na azure para realizar o deploy
+#           repo_token: ${{ secrets.GITHUB_TOKEN }} # Token do Git, este o GitHub fornece automatica sem precisar adicionar na secrets
+#           action: "upload" # A ação que executará
+#           app_location: "/" # Onde o projeto está, caso seja um monolito por exemplo deveria colocar a pasta client.
+#           output_location: "build" # Pasta que irá subir para deploy
