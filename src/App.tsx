@@ -3,39 +3,42 @@ import React from 'react';
 
 import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
 
-const App: React.FC = () => (
-  <BrowserRouter basename={process.env.PUBLIC_URL}>
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/config">config</Link>
-          </li>
-          <li>
-            <Link to="/user">user</Link>
-          </li>
-        </ul>
-      </nav>
+const App: React.FC = () => {
+  let a;
+  return (
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/config">config</Link>
+            </li>
+            <li>
+              <Link to="/user">user</Link>
+            </li>
+          </ul>
+        </nav>
 
-      {/* A <Switch> looks through its children <Route>s and
+        {/* A <Switch> looks through its children <Route>s and
         renders the first one that matches the current URL. */}
-      <Switch>
-        <Route path="/user">
-          <User />
-        </Route>
-        <Route path="/config">
-          <Config />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </div>
-  </BrowserRouter>
-);
+        <Switch>
+          <Route path="/user">
+            <User />
+          </Route>
+          <Route path="/config">
+            <Config />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
+  );
+};
 
 const Home = () => (
   <div>
