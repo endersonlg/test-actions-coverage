@@ -44,6 +44,7 @@ const Home = () => (
     <p>Teste SubModules</p>
     <p>Finished??</p>
     <p>Git??</p>
+    <p>Segundouu?</p>
   </div>
 );
 
@@ -54,14 +55,11 @@ const User = () => (
   </div>
 );
 
-const Config = () => {
-  console.log(process.env.PUBLIC_URL);
-  return (
-    <div>
-      <h1>React + Node</h1>
-      <p>BOm demais</p>
-    </div>
-  );
-};
+const Config = () => (
+  <div>
+    <h1>React + Node</h1>
+    <p>BOm demais</p>
+  </div>
+);
 
 export default App;
