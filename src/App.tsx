@@ -45,6 +45,7 @@ const Home = () => (
     <p>Finished??</p>
     <p>Git??</p>
     <p>Segundouu?</p>
+    <p>gogo?</p>
   </div>
 );
 
