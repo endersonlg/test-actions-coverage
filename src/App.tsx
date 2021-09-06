@@ -39,7 +39,7 @@ const App: React.FC = () => (
 
 const Home = () => (
   <div>
-    <h1>Test Git Hub Actions</h1>
+    <h1>Test Git Hub Actions 2</h1>
     <p>Deploy GitHub Page</p>
     <p>Teste SubModules</p>
     <p>Finished??</p>
